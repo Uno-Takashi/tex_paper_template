@@ -1,0 +1,175 @@
+\chapter{チャプター}
+
+\section{セクション}
+\label{sec:background}
+
+
+\subsection{サブセクション}
+
+章へのリファレンスはこんな感じ → \autoref{sec:background}
+
+論文への引用はこんな感じ → \citep{alexnet}
+
+かっこなし → \citealt{alexnet}
+
+著者だけ → \citeauthor{alexnet}
+
+年だけ→\citeyear{alexnet}
+
+よくわからん形式 → \cite{alexnet}
+
+\begin{definition}
+\label{def:something}
+何かを定義する
+\end{definition}
+
+\autoref{def:something}への参照
+
+\begin{hypothesis}
+\label{hyp:something}
+何かの仮説
+\end{hypothesis}
+
+\autoref{hyp:something}への参照
+
+\begin{researchquestion}
+\label{rq:something}
+何かのRQ
+\end{researchquestion}
+
+\autoref{rq:something}への参照。
+
+
+\begin{equation}
+\label{eq:something}
+    a=b
+\end{equation}
+
+\eqref{eq:something}への参照。
+
+*↑本当に理由がわからんのですが、式だけautorefがバグるので、eqrefを使用
+
+本文内で式や文字を書く場合はこんな感じ。$\alpha = \beta$。
+
+箇条書き
+
+\begin{enumerate}
+  \item 一つ目
+  \item 二つ目
+  \item 三つ目
+\end{enumerate}
+
+\begin{description}
+  \item[日時] 一つ目
+  \item[場所] 二つ目
+  \item[注意事項] 三つ目
+\end{description}
+
+
+本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文
+
+\section{余談}
+
+
+\subsection{labelのルール}
+
+labelにはxxx:内容 というフォーマットをよく見かけます。labelは後々入れ替わることを想定し、原則ナンバリングなどをつけません。
+番号のみを参照したい場合autorefではなくrefコマンドを使います。(\ref{def:something})
+
+\subsection{excelで作ったテーブルを使いたい}
+
+LaTeX Table Generatorを使おう。
+
+\url{https://www.tablesgenerator.com/}
+
+というかテーブル作るときは、texで直接書くと地獄を見るので、基本的にgeneratorを使おう。
+
+\subsection{画像や表の表示場所}
+
+表示場所が上に行ったり次のページに行ったりしてしまうのは論文としては正常です。
+しかし、意地でもここに出したいと思ったときは、大文字のHを指定しよう。
+* hereというパッケージを読み込む必要があります
+
+table{}[H]←ここが小文字じゃなくて大文字
+
+\begin{table}[H]
+\centering
+\caption{キャプション（表のキャプションは上らしい）}
+\label{tab:something}
+\begin{tabular}{c|ccc}
+\hline
+      & \multirow{2}{*}{認知面} & \multicolumn{2}{c}{情動面}                                                           \\ \cline{3-4} 
+      &                      & 並行的所産                 & 応答的所産                                                     \\ \hline
+他者指向性 & 視点取得                 & \multirow{2}{*}{被影響性} & \begin{tabular}[c]{@{}c@{}}他者指向的反応\\ (共感的配慮)\end{tabular} \\
+自己指向性 & 想像性                  &                       & \begin{tabular}[c]{@{}c@{}}自己指向的反応\\ (個人的苦痛)\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+
+一応テーブルへの参照 → \autoref{tab:something}
+
+*厳密にはキャプションの文字を参照しているので、captionタグより下にlabelを書く必要性がある
+
+\subsection{数式を書くのがめんどい！？}
+
+統計ウェブに有名どころの式のtexフォーマットがある。そこからパクってくると簡単。
+
+例 : クロンバックのアルファ
+
+\url{https://bellcurve.jp/statistics/glossary/1274.html?srsltid=AfmBOorvj0PeHHk5YzporOu_DVhAqW1xiWM7KUhO2gIpEcJ9nHK-w4iy}
+
+\begin{equation}
+    \alpha = \frac{m}{m-1} \left(1 - 
+\frac{\displaystyle \sum_{i = 1}^m{{\sigma_i}^2}}{{\sigma_x}^2} \right)
+\end{equation}
+
+また、arxivなどはpdfのほかにtexファイルも配布されているので、論文から直接パクってくるのもあり。
+
+あと、使ったことないけど画像からtexを生成してくるサービスがある
+\url{https://mathpix.com/image-to-latex}
+
+\subsection{数式をパワポで使いたい}
+
+今は、ワードやパワポにtexで書いた数式を入力できる機能が標準搭載されています。
+
+また、texを画像に変換するサービスもあります。
+
+\url{https://latex2image.joeraut.com/}
+
+\subsection{bibtexファイルがない}
+
+書籍などは.bibではなく、.risフォーマットで配布されているときがあります。
+
+例のごとく変換サイトがあるので、変換しましょう。
+
+\url{https://www.bruot.org/ris2bib/}
+
+また、ウェブサイトなどは、クローム拡張機能を入れておくと便利です。
+
+\url{https://chromewebstore.google.com/detail/bibtex-entry-from-url/mgpmgkhhbjgkpnanlmlhibjfgpdpgjec?hl=ja&pli=1}
+
+\subsection{ローカル環境が欲しい}
+
+TeXLiveをインストールしましょう。
+もしくは、vscodeでdevcontainerを立てましょう。
+
+人力で、環境を構築するのは職人向けです。
+
+\subsection{差分管理がしたい}
+
+Overleafに課金するとGitHub連携ができます。
+
+また、右上のhistoryからある程度見れます。
+
+\subsection{論文に書いた式とプログラムに書いた式の同一性を担保したい}
+
+sympyを使うと、プログラム上で書いた数式で計算させて、ついでにtexフォーマットで式を出力してくれます。
+証券投資論はこれで楽してました。
+
+\subsection{引用の追加方法}
+
+\begin{itemize}
+    \item 大体どの論文サイトもbibtexフォーマットでファイルを取得できるので取得する
+    \item bibliography.bibに張り付ける
+    \item 一番上の参照名をいい感じにする。
+    \item citepタグを使って、本文中で引用する。
+\end{itemize}

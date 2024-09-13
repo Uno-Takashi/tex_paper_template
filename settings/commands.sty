@@ -1,0 +1,26 @@
+% hyperrefの設定
+\def\equationautorefname~#1\null{(~#1)式\null}
+\def\figureautorefname~#1\null{ 図~#1\null}
+\def\tableautorefname~#1\null{ 表~#1\null}
+\def\chapterautorefname~#1\null{第~#1章\null}
+\def\sectionautorefname~#1\null{~#1節\null}
+\def\subsectionautorefname~#1\null{~#1項\null}
+\def\subsubsectionautorefname~#1\null{~#1目\null}
+\def\paragraphautorefname~#1\null{第~#1目下\null}
+\def\subparagraphautorefname~#1\null{第~#1小パラグラフ\null}
+\def\pageautorefname~#1\null{~#1ページ \null}
+\def\appendixautorefname~#1\null{~#1 \null}
+
+\newcommand{\definitionautorefname}{定義}
+\theoremstyle{definition}
+\newtheorem{definition}{定義}
+
+\newcommand{\hypothesisautorefname}{仮説}
+\theoremstyle{hypothesis}
+\newtheorem{hypothesis}{仮説}
+
+\newcommand{\researchquestionautorefname}{RQ}
+\theoremstyle{researchquestion}
+\newtheorem{researchquestion}{RQ}
+
+\pretocmd{\eqref}{式~}{}{}

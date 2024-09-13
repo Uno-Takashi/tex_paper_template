@@ -1,0 +1,88 @@
+%------------------------------------------------------------------------------
+\documentclass[master]{settings/cimt}
+% オプションについては，マニュアルを参照．
+% \documentclass[master,oneside]{cimt} 
+
+% 必要とするパッケージがあれば、以下のファイルで読み込む。
+\usepackage{settings/packages}
+
+% 論文タイトル
+\jtitle{日本語タイトル}
+% 長い時には自動的に改行されるが，次のように明示的に改行することもできる．
+% \jtitle{長いタイトルを\\このように改行位置を指定して組む}
+
+% 英文タイトル
+\etitle{English title}
+
+% 著者名
+\jauthor{東工大太郎}
+
+% 英文著者名
+\eauthor{Tokodai Tarou}
+
+% 指導教員
+\supervisor{教員名}
+
+% 提出月．この例だと，2010年1月．
+\handin{2025}{1}
+
+
+\begin{document}
+
+% 表紙と表紙裏
+\maketitle 
+
+% ここから前文
+\frontmatter
+
+% 概要
+\begin{jabstract}
+\input contents/abstract_japanese.tex
+\end{jabstract}
+
+% 英文概要
+\begin{eabstract}
+\input contents/abstract_english.tex
+\end{eabstract}
+
+% 目次
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+% ここから本文
+\mainmatter
+
+\input contents/chapter1.tex
+
+% ここから後付
+\backmatter
+
+% 発表文献
+% \pubUseLongName % 指定すると，タイトルが 「発表文献と研究活動」になる．
+% \begin{publications}
+% \input contents/publications.tex
+% \end{publications}
+
+% 参考文献: BibTeX を使う場合の例 (styleは適宜選択)
+\setcitestyle{numbers}
+\bibliographystyle{plainnat}
+\begingroup
+\let\em\upshape
+\bibliography{bibliography}
+\endgroup
+% https://zenn.dev/grafumo/scraps/9daded9a870f2d
+
+% 参考文献: 直接記述する場合の例
+% \input biblio.tex
+
+% 謝辞 (前文においても良い)
+\begin{acknowledgements}
+\input contents/acknowledgement.tex
+\end{acknowledgements}
+
+%付録 (必要な場合のみ)
+\appendix
+
+\input contents/appendix.tex
+
+\end{document}

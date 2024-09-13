@@ -1,0 +1,1241 @@
+% ^^A -*- japanese-latex -*-
+% \iffalse meta-comment
+%
+%  n¢îñ Cm_¶NXt@C
+%
+%  ±êÍCåwåw@îñHwn¤Èn¢îñwêUÌCm_¶pÌ
+%  NXt@CÅ·DØSî³ñªì¬µ½CHwv
+%  HwÈîñHwR[XÌ²Æ_¶pNXt@C suribt ðàÆÉ
+%  µÄ¢Ü·DLaTeX3 Project Ì classes.dtx Æ®ïÐAXL[Ì 
+%  jclasses.dtx ÉîÃ¢Äº°F³ñªì¬µ½VhLgNXÌ
+%  ¤¿ jsbook.cls ðÇÝñÅCKvÈª¾¯ã«È¢µÇL·é±
+%  ÆÅÀ»³êÄ¢Ü·D
+%
+%  n¢îñpÌüÏªÉÂ¢ÄÍCì ðå£µÜ¹ñDØ³ñÌ 
+%  suribt ÌCZXÍCmodified BSDÅ·D
+%
+%  Copyright 1993 1994 1995 1996 1997 1998 1999
+%  The LaTeX3 Project and any individual authors listed elsewhere
+%  in this file.
+%
+%  Copyright 1995-1999 ASCII Corporation.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{cimt.dtx}
+%</driver>
+%<cimt>\NeedsTeXFormat{pLaTeX2e}
+%<cimt>\ProvidesClass{cimt}
+%<*class>
+  [2009/11/12 v1.04 master thesis style for Creative Informatics, Univ of Tokyo]
+%</class>
+%
+%<*driver>
+\documentclass{jsarticle}
+\usepackage{doc}
+\usepackage{color}
+%%%
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    \headfont\LARGE \@title
+  \end{center}
+  \begin{flushright} \headfont
+   {\Large\@author}\par
+   {\large\@date}
+  \end{flushright}
+}
+\long\def\@makecaption#1#2{{\small%
+  \advance\leftskip2zw
+  \advance\rightskip2zw
+  \@tempdimb\hsize
+  \advance\@tempdimb-4zw
+  \vskip\abovecaptionskip
+  \setbox\tw@=\hbox{\hskip2zw{\headfont#1.} }%
+  \sbox\@tempboxa{{\headfont#1.} #2}%
+  \ifdim \wd\@tempboxa >\@tempdimb
+    \list{\headfont#1.}{%
+      \renewcommand{\makelabel}[1]{\hskip2zw##1\hfil}
+      \itemsep    \z@
+      \itemindent \z@
+      \labelsep   \z@
+      \labelwidth \wd\tw@
+      \listparindent\z@
+      \leftmargin \wd\tw@
+      \rightmargin 2zw}\item\relax #2\endlist
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}}
+\makeatother
+%%%
+\addtolength{\textwidth}{-1in}
+\addtolength{\evensidemargin}{1in}
+\addtolength{\oddsidemargin}{1in}
+\addtolength{\marginparwidth}{1in}
+\setlength\marginparpush{0pt}
+\setcounter{StandardModuleDepth}{1}
+\newcommand{\marg}[1]{%
+  {\ttfamily\char`\{}\meta{#1}{\ttfamily\char`\}}}
+
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\OnlyDescription
+
+\begin{document}
+  \DocInput{cimt.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{990}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v1.0}{2008/11/14}{Initial version}
+%
+% \GetFileInfo{cimt.dtx}
+%
+% \title{n¢îñ Cm_¶NXt@C}
+% \author{n¢îñwêU}
+% \date{\filedate}
+%
+% \maketitle
+%
+% \MakeShortVerb{\|}
+%
+% \section{Í¶ßÉ}
+%
+% ±êÍCåwåw@îñHwn¤Èn¢îñwêUÌCm_¶pÌ
+% NXt@CÅ·DØSî³ñªì¬µ½C
+% HwvHwÈîñHwR[XÌ²Æ_¶pNXt@C suribt ðàÆÉ
+% µÄ¢Ü·D
+% Ü½CRs[^ÈwêUÌCmEm_¶pX^Ct@C 
+% \texttt{is-thesis.cls}
+% ÌàeàQlÉµÄ¢Ü·D
+% 2009N11»ÝÌÛçSÒÍCcÓ (y-tanabe@ci.i.u-tokyo.ac.jp) Å·D
+% 
+% suribt ÍC
+% º°F³ñªì¬µ½VhLgNX \texttt{jsclasses.dtx} Ì¤¿ 
+% \texttt{jsbook} NX 
+% ðÇÝñÅCKvÈª¾¯ã«È¢µÇL·é±ÆÅÀ»³êÄ¢Ü·D
+% È¨CVhLgNXÍC
+% \LaTeX{}3 Project Ì \texttt{classes.dtx} Æ
+% ®ïÐAXL[Ì \texttt{jclasses.dtx} ÉîÃ¢Ä¢Ü·D
+% Èã \texttt{jsbook} NXÌ±Æð{\em eNX}ÆÄÔ±Æ
+% ÉµÜ·D
+%
+% \section{CXg[} \label{sect:inst}
+%
+% \paragraph{zzpbP[W}
+%
+% zzpbP[WÉÍC\\ref{tbl:distFiles}É¦·t@C/fBNgª
+% ÜÜêÄ¢éÍ¸Å·D
+% 
+% \begin{table}[hbt]
+% \caption{\label{tbl:distFiles}pbP[WÉÜÜêét@C}
+% \begin{center}
+% \begin{tabular}{ll}
+%  \hline
+%  \multicolumn{1}{c}{t@C}& \multicolumn{1}{c}{à¾} \\
+%  \hline
+%  cimt.ins & NXt@CÈÇÌ¶¬Ép¢é \\
+%  cimt.dtx & NXt@CC}jAÌ{Ì \\
+%  sampleJ & ú{êTvð[ßéfBNg \\
+%  sampleE & pêTvð[ßéfBNg \\
+%  \hline
+% \end{tabular}
+% \end{center}
+% \end{table}
+% 
+% õÆµÄCú{ê \LaTeX ªÅ«éæ¤ÈÂ«ð\zµÄ¨­Kvª
+%  èÜ·DÚ×ÍCzzTCgÌLqðQÆµÄ­¾³¢D
+% 
+% \paragraph{CXg[}
+%
+% pbP[WðWJµ½çCÌR}hðÀsµÜ·D
+% 
+% \qquad \verb!platex cimt.ins!
+%
+% ±êÉæÁÄCJgfBNgÉt@C \verb!cimt.cls! ª
+% ¶¬³êÜ·D±Ìt@CðC\TeX n©ç©¦éKØÈê 
+% ÉÚ®µÄCKvÈçÎ mktexlsr ÈÇÌõø¶¬R}hðÀsµÄ­¾³¢D
+% æ­í©çÈ¢êÉÍC±Ìt@CðíÉJgfBNgÉ
+% u­±ÆÉ·êÎâè èÜ¹ñD
+%
+% \paragraph{à¾¶}
+%
+% ÌR}hÅ±Ì¶ð¶¬Å«Ü·D
+%
+% \qquad \verb!platex cimt.dtx!
+% 
+% Ü½Ct@C |cimt.dtx| ÉÜÜêé
+% \quad \verb!\OnlyDescription!
+% Æ¢¤sðíµÄ©çãÌ
+% R}hðÀs·éÆC\verb!cimt.cls! Ì\[XR[h¨æÑC»Ì
+% à¾ªtÁ³ê½`Å¶ª¶¬³êÜ·D
+%
+%
+%
+% \section{_¶Ìì¬}
+%
+% \paragraph{¶ÌgÝ} \label{¶ÌgÝ}
+%
+% _¶ÍC}\ref{fig:¶ÌgÝ}Ìæ¤ÈgÝÉ
+% àeðßÄ¢­±ÆÅì¬µÜ·Dzzt@CÌ
+% \verb!sampleJ/sampleJ.tex!, \verb!sampleE/sampleE.tex! ðQlÉµÄ­¾³¢D
+% 
+%\begin{figure}[tbp]
+%{\narrowbaselines
+%\begin{verbatim}
+% \documentclass[master]{cimt} 
+% 
+% % KvÆ·épbP[Wª êÎC±±Åwè·éD
+% \usepackage{graphicx}
+% 
+% \jtitle{±ê±êÉÂ¢Ä} % _¶^Cg
+% \etitle{On blahblah} % p¶^Cg
+% \jauthor{Ht n¾} % Ò¼
+% \eauthor{Sota Akiba} % p¶Ò¼
+% \supervisor{{½ îê ³ö} % w±³õ
+% \handin{2009}{1} % ñoD±Ìá¾ÆC2009N1D
+% 
+% \begin{document}
+% \maketitle % \Æ\ 
+% 
+% \frontmatter % ±±©çO¶
+% 
+% \begin{jabstract} % Tv
+% \input jabst.tex
+% \end{jabstract}
+% \begin{eabstract} % p¶Tv
+% \input eabst.tex
+% \end{eabstract}
+% 
+% \tableofcontents % Ú
+% 
+% \mainmatter % ±±©ç{¶
+% 
+% \input intro.tex 
+% \input body.tex
+% ....
+% \input conclusion.tex
+% 
+% \backmatter % ±±©çãt
+% 
+% % Ql¶£
+% \bibliographystyle{junsrt}
+% \bibliography{sampleJ}
+% 
+% \begin{acknowledgements} % Ó« (O¶É¨¢ÄàÇ¢)
+% \input ack.tex
+% \end{acknowledgements}
+% 
+% \appendix %t^ (KvÈêÌÝ)
+% \input appendix.tex
+% 
+% \end{document}\end{verbatim}}
+% \caption{¶ÌgÝ}
+%\label{fig:¶ÌgÝ}
+%\end{figure}
+%
+% \paragraph{vAu}
+%
+%  vAu (\verb!\begin{document}!ÌO) ÅCÈºÌ
+%  6ÂÌ}NðgpµÄCKvÈlðÝèµÜ·D
+%  ±êçÍ·×ÄCK{ÌÝèÅ·D
+% \begin{itemize}
+%  \item \DescribeMacro{\jtitle} |\jtitle| \marg{jtitle}: 
+%        a¶^CgðÝèµÜ·D
+%  \item \DescribeMacro{\etitle} |\etitle| \marg{etitle}: 
+%        p¶^CgðÝèµÜ·D
+%  \item \DescribeMacro{\jauthor} |\jauthor| \marg{jauthor}: 
+%        a¶Ò¼ðÝèµÜ·D
+%  \item \DescribeMacro{\eauthor} |\eauthor| \marg{eauthor}: 
+%        p¶Ò¼ðÝèµÜ·D
+%  \item \DescribeMacro{\supervisor} |\supervisor| \marg{supervisor}:
+%        w±³õ¼ðC¨ (³öCy³öÈÇ) t«ÅÝèµÜ·D
+%        _¶{ÌðpêÅ­êÉÍCp¶ÅwèµÜ·D
+%  \item \DescribeMacro{\handin} |\handin| \marg{year} \marg{month}:
+%        _¶ðño·éNðwèµÜ·D\meta{year}Í4ÌÅC
+%        \meta{month}Í1Ü½Í2ÌÅwèµÜ·D
+% \end{itemize}
+% 
+% \paragraph{{ÌÌ3ª}
+%
+% \DescribeMacro{\frontmatter}
+% \DescribeMacro{\mainmatter}
+% \DescribeMacro{\backmatter}
+% |\begin{document}| Ì¼ãÉ |\maketitle| ðu¢ÄC\Æ
+% \ ðoÍµÜ·D
+% ±ÌãC|\end{document}| ÜÅÌ{ÌªÍC
+% 3ÂÌ}N |\frontmatter|, |\mainmatter|, |\backmatter| ÉæÁÄ
+% 3ÂÌªCO¶C{¶CãtÉªµÜ·D
+% 
+% \paragraph{O¶}
+%
+% \DescribeMacro{\frontmatter}
+% O¶ÍC}N|\frontmatter| ÉæÁÄJn³êÜ·D
+% ±±ÉÍCa¶¨æÑp¶ÅÌTvCÚðu«Ü·D
+% TvÍC{Ìðú{êÅLq·éêÉÍú{êCpêÌÉC
+% {ÌðpêÅLq·éêÉÍpêCú{êÌÉzuµÄ­¾³¢D
+% 
+% \begin{itemize}
+%  \item \DescribeEnv{jabstract}
+%        a¶TvÌLqÉÍC|jabstract| Â«ðp¢Ü·D
+%  \item \DescribeEnv{eabstract}
+%        p¶TvÌLqÉÍC|eabstract| Â«ðp¢Ü·D
+%  \item |\tableofcontents| }NÅCÚðoÍµÜ·D
+% \end{itemize}
+%
+% \paragraph{{¶}
+% \DescribeMacro{\mainmatter}
+% {¶ÍC}N|\mainmatter|ÉæÁÄJn³êÜ·D
+%
+% \paragraph{ãt}
+% \DescribeMacro{\backmatter}
+% \DescribeMacro{\appendix}
+% ãtÍC}N|\backmatter|ÉæÁÄJn³êÜ·D
+% ±±ÉÍC
+% ­\¶£¨æÑ¤®XgCQl¶£XgCÓ«C
+% ¨æÑt^(KvÈêÌÝ)ðu«Ü·D
+%
+% \begin{itemize}
+%  \item \DescribeEnv{publications} \DescribeMacro{\pubUseLongName}
+%        ­\¶£yÑ¤®ÌXgðLq·éÉÍC|publications| Â«ðp¢Ü·D
+%        TvÉ]ÁÄC|\item| ðÀ×Ä­¾³¢D
+%        |publications| Â«ÌJnOÉ |\pubUseLongName| }Nðu­ÆC
+%        ^Cgªu­\¶£Æ¤®v(pêÌêÉÍ``Publications and 
+%	 Research Activities'') ÉÈèÜ·D±êªÈ¢ÉÍC^CgÍ
+%	 u­\¶£v(pêÌêÍ``Publications'')Å·D
+%  \item
+%        Ql¶£Ì«ûÉÁÉKèÍ èÜ¹ñD|thebibliography|Â«ðp¢Ä
+%        ¼Ú¢Äà\¢Ü¹ñµC\BibTeX (jbibtexR}h) ðg¤±ÆàÅ«Ü·D
+%        TvðQlÉµÄ­¾³¢D
+%  \item \DescribeEnv{acknowledgements}
+%        Ó«ÍC|acknowledgements| Â«ðp¢ÄLqµÄ­¾³¢D
+%        Ó«ÍCO¶É¨¢Äà©Ü¢Ü¹ñD
+%  \item 
+%        t^ðJn·éOÉÍC}N|\appendix|ðu¢Ä­¾³¢D
+%        ±êÉæÁÄCÍÔªpå¶Åt­æ¤ÉÈèÜ·D
+% \end{itemize}
+%
+% \paragraph{Ó: ¡@Ìµ¢}
+%
+% ­§IÉeNXð \texttt{11pt} IvVt«ÅÄÑoµÄ¢Ü·D
+% ±êÉæÁÄCàIÉÍ¢Á½ñ10ptÅy[WðgÝC
+% »êð 1.095 {µÄoÍ·é
+% ±ÆÉÈèÜ·D±êÉÆàÈ¢CPÊÌµ¢ÉÓªKvÅ·D
+%   \begin{itemize}
+%    \item \texttt{zw}, \texttt{em}, \texttt{ex} ÈÇC¶Ìå«³É
+%          Ë¶µÄÜéPÊÉÍCÁÉâèÍ èÜ¹ñD
+%    \item \texttt{cm}, \texttt{in} ÈÇÌPÊðà¿¢Ä
+%          wèµ½·³ÍC1.095{³êÄµÜ¢Ü·D
+%          oÍÌ·³Åwèµ½¢êÍPÊÌ¼OÉ \texttt{true}
+%          ðÂ¯ÄC\texttt{truecm}, \texttt{truein} ÈÇÆµÄ
+%          pµÄ­¾³¢D
+%   \end{itemize}
+%
+% \section{IvV}
+%
+% \paragraph{ÝèÅ«éIvV}
+%
+% ÝèÅ«éIvVð\\ref{tab:ÝèÅ«éIvVê}É
+% ÜÆßÜµ½D1ñÚªúÝèÅIð³êÄ¢Ü·D
+%
+% \begin{table}[!htbp]
+%  \caption{ÝèÅ«éIvVê (1ñÚªúÝè).}\label{tab:ÝèÅ«éIvVê}
+%  \begin{center}
+%   \begin{tabular}{cccc} \hline
+%    {\em|final|}    & |draft| & &\\ \hline
+%                    & |mingoth| & |winjis| &\\ \hline
+%                    & |tombow| & |tombo| & |mentuke| \\ \hline
+%    {\em |twoside|} & |oneside| & & \\ \hline
+%                    & |papersize| & & \\ \hline
+%                    & |english| & & \\ \hline
+%    {\em |tocchaplong|} & |tocchapshort| & & \\ \hline
+%                    & |emptypagenombre|  & & \\ \hline
+%    {\em |master|}  & |doctor| & & \\ \hline
+%   \end{tabular}
+%  \end{center}
+% \end{table}
+%
+% ±êçÍC
+% |tocchaplong|/|tocchapshort|C
+% |master|/|doctor|C
+% |emptypagenombre|
+% ÌeIvVð¢ÄC
+% eNX©çp³µ½àÌÅ·D@\ÉÂ¢ÄÍCeNXÌhLgð
+% QÆµÄ­¾³¢D
+%
+% \paragraph{pêwè}
+% IvV \texttt{english} ÍCeNX©çp³µ½àÌÅ·ªC
+% dvÅ·ÌÅà¾µÜ·D±ÌIvVðwè·éÆCuÚvu\v
+% ÈÇÌè^åª ``Contents'', ``Table'' ÈÇÌpêÉÏíèÜ·D
+% {¶ðpêÅLq·éÉÍCK¸±ÌIvVðwèµÄ­¾³¢D
+%
+% \paragraph{ÐÊE¼Êwè}
+% IvV \texttt{twoside/oneside} àCeNX©çp³µ½àÌÅ·ªC
+% dvÅ·ÌÅà¾µÜ·D
+% oneside ðwè·éÆÐÊóüpÉCtwoside ðwè·é (àµ­ÍC½àwèµÈ¢) Æ
+% ¼ÊóüpÉgÅµÜ·D
+% 
+% \paragraph{ÚÅÌÍÔ\¦}
+%
+% |tocchapshort| IvVðt¯éÆC
+% ÚÉÄC{\headfont æ1Í}/{\headfont Chapter~1}â
+% {\headfont t^A}/{\headfont Appendix~A}Æ¢¤·¢\¦ð¹¸ÉC
+% {\headfont 1} â {\headfont A} Æ¢¤\¦ðp¢Ü·D
+% úÝèÅÍ (àµ­Í |tocchaplong| IvVðt¯éÆ) 
+% ·¢\¦ðp¢Ü·D
+%
+% \changes{v1.01}{2008/12/09}{New option emptypagenombre}
+% \paragraph{óy[WÌy[WÔ}
+% |emptypagenombre| IvVðwè·éÆC
+% óy[WÉày[WÔªt«Ü·D
+%
+% \paragraph{_¶ÌíÞ}
+%
+% Cm_¶ (|master|), m_¶ (|doctor|)
+% ðwèµÜ·D
+% úÝèÍCm_¶Å·D
+% »ÝCm_¶ÍT|[g³êÄ¢Ü¹ñD
+% àeÍC¨»ç­CKØÈàÌÅÍ èÜ¹ñD
+% ²©ªÅKØÉC³µÄC¨g¢­¾³¢D
+% \changes{v1.02}{2008/12/12}{Made it explicit that option `doctor' is not supported.}
+%
+%\begin{thebibliography}{9}
+% \bibitem{Knuth1986}
+%         Donald E.\ Knuth: {\em The \TeX{}book}, Addison-Wisley, 1986;
+%         Ö¡Mj (ÄC), ëJDP (ó): w[üùVÅ] \TeX{}ubNx, AXL[, 1992.        
+% \bibitem{º2000}
+%         º°F: w[üùÅ] \LaTeXe{}ü¶ì¬üåx, 
+%         Zp]_Ð, 2000.^^A\ 12.
+% \bibitem{º2004}
+%         º°F: w[üùæ3Å] \LaTeXe{}ü¶ì¬üåx, 
+%         Zp]_Ð, 2004.^^A\ 2.
+% \bibitem{ºjs}
+%         º°F: \pLaTeXe{}VhLgNX, 
+%         \texttt{http://oku.edu.mie-u.ac.jp/\hspace{0pt}\~{}okumura/\hspace{0pt}jsclasses/%
+%         \hspace{0pt}jsclasses-041229.zip}, 2004.^^A\ 12.\ 29.
+% \bibitem{îbðà}
+%         y[WEG^[vC[X: 
+%         w\LaTeXe{}y}N\&NXzvO~Oîbðàx, 
+%         Zp]_Ð, 2002.^^A\ 9.
+% \bibitem{´}
+%         ´úg: w_¶Ì«û\\à¾ÍÌ é¶Íð­½ßÉx, 
+%         îñHwKæñBQl¿, 2004.^^A\ 12.
+% \bibitem{texqa}
+%         \TeX{} Q \& A, \texttt{http://oku.edu.mie-u.ac.jp/\~{}okumura/texfaq/qa/}.
+% \bibitem{texwiki}
+%         \TeX{} Wiki, \texttt{http://oku.edu.mie-u.ac.jp/\~{}okumura/texwiki/}.
+%\end{thebibliography}
+%
+% \section*{ì }
+%
+%  n¢îñpÌüÏªÉÂ¢ÄÍCì ðå£µÜ¹ñDØ³ñÌ 
+%  suribt ÌCZXÍCmodified BSDÅ·D
+%
+% \begin{verbatim}
+% Copyright 1993 1994 1995 1996 1997 1998 1999
+% The LaTeX3 Project and any individual authors listed elsewhere
+% in this file.
+%
+% Copyright 1995-1999 ASCII Corporation.
+% \end{verbatim}
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \clearpage
+%
+% \section{À}
+% \subsection{IvV}\label{sec:IvV}
+%
+% |\documentclass{cimt}|  é¢Í |\documentclass[IvV]{cimt}| Ìæ¤ÉÄÑoµÜ·B
+%
+% \subsubsection{eNX©çó¯p¢¾IvV}\label{sec:eNX©çó¯p¢¾IvV}
+%
+% \paragraph{htg}
+%
+% \texttt{draft} Åoverfull boxÌN«½sÉ5ptÌrüðø«Ü·B
+%
+%    \begin{macrocode}
+\newif\ifdraft
+\DeclareOption{draft}{\drafttrue}
+\DeclareOption{final}{\draftfalse}
+%    \end{macrocode}
+%
+% \paragraph{JIStHggbNÌgp}
+%
+% ±±ÅÍa¶TFMi\TeX tHggbNjÆµÄÐóüÌ¬Ñ£³
+% ñÌìçê½JIStHggbN \texttt{jis.tfm}C\texttt{jisg.tfm}
+% ðWÅg¢Ü·B
+% ]ÌtHggbN \texttt{min10}C\texttt{goth10} ÈÇð
+% g¢½¢Æ«Í \texttt{mingoth} Æ¢¤IvVðwèµÜ·B
+% Ü½C\texttt{winjis} IvVÅ \texttt{winjis} gbNªg¦Ü·B
+%
+%    \begin{macrocode}
+\newif\ifjisfont
+\jisfonttrue
+\DeclareOption{mingoth}{\jisfontfalse}
+\newif\ifwinjis
+\winjisfalse
+\DeclareOption{winjis}{\winjistrue}
+%    \end{macrocode}
+%
+% \paragraph{g{EÊt¯}
+%
+% Úµ¢à¾ÍVhLgNXÌhLgð©Ä­¾³¢D
+% úÝèÅÍg{EÊt¯ÍµÜ¹ñD
+%
+%    \begin{macrocode}
+\newif\iftombow
+\tombowfalse
+\DeclareOption{tombow}{\tombowtrue}
+\newif\iftombo
+\tombofalse
+\DeclareOption{tombo}{\tombotrue}
+\newif\ifmentuke
+\mentukefalse
+\DeclareOption{mentuke}{\mentuketrue}
+%    \end{macrocode}
+%
+% \paragraph{¼ÊCÐÊIvV}
+%
+% \texttt{oneside} ªÐÊóüpC
+% \texttt{twoside} ª¼Êóüp (ïy[WEôy[WÌCAEgðÏX) Å·D
+%
+%    \begin{macrocode}
+\DeclareOption{oneside}{\@twosidefalse}
+\DeclareOption{twoside}{\@twosidetrue}
+%    \end{macrocode}
+%
+% \paragraph{papersizeXyVÌp}
+%
+% dvipsâdvioutÅpÝèð©®»·éÉÍ
+% IvV \texttt{papersize} ð^¦Ü·B
+%
+%    \begin{macrocode}
+\newif\ifpapersize
+\papersizefalse
+\DeclareOption{papersize}{\papersizetrue}
+%    \end{macrocode}
+%
+% \paragraph{pê»}
+%
+% IvV \texttt{english} ðt¯é±ÆÅCè^åªpêÉ
+% ÈèÜ·D½Æ¦Î {\headfont Ú}ª {\headfont Contents} % ÆÈèÜ·D
+%
+%    \begin{macrocode}
+\newif\if@english
+\@englishfalse
+\DeclareOption{english}{\@englishtrue}
+%    \end{macrocode}
+%
+% \subsubsection{VÝµ½IvV}\label{sec:VÝµ½IvV}
+%
+% \paragraph{ÚÅÌÍÔ\¦}
+%
+% \TeX{} Q\&A~\cite[33403tß]{texqa} ÅÌbèð¥Ü¦C
+% |tocchaplong|, |tocchapshort| Æ¢¤IvVðVÝµÜµ½D
+% |tocchapshort| IvVðt¯éÆCÚÉÄC{\headfont æ1Í}/{\headfont Chapter~1}â
+% {\headfont t^A}/{\headfont Appendix~A}Æ¢¤·¢\¦ð¹¸ÉC
+% {\headfont 1} â {\headfont A} Æ¢¤\¦ðp¢Ü·D|book| NXÅÌp³êÄ¢é\¦û@Å·D
+% úÝèÅÍ (àµ­Í |tocchaplong| IvVðt¯éÆ) 
+% ·¢\¦ðp¢Ü·D|jsbook| ÅC|english| IvVðt¯È¢Æ«ÌoÍÅ·D
+%
+%    \begin{macrocode}
+\newif\if@tocchaplong
+\DeclareOption{tocchaplong}{\@tocchaplongtrue}
+\DeclareOption{tocchapshort}{\@tocchaplongfalse}
+%    \end{macrocode}
+%
+% \paragraph{óy[WÌy[WÔ}
+% |emptypagenombre| IvVÉæÁÄCóy[WÉày[WÔªt«Ü·D
+% \TeX{} Q\&A~\cite[22520]{texqa} ÉæÁÄÀµÜµ½D
+%
+%    \begin{macrocode}
+\newif\if@emptypagenombre
+\@emptypagenombrefalse
+\DeclareOption{emptypagenombre}{\@emptypagenombretrue}
+%
+%
+% \paragraph{_¶ÌíÞ}
+%
+% Cm_¶ (|master|), m_¶ (|doctor|)
+% ðwèµÜ·D
+% úÝèÍCm_¶Å·D
+%
+%    \begin{macrocode}
+\newif\if@graduatedoctor
+\@graduatedoctorfalse
+\DeclareOption{master}{\@graduatedoctorfalse}
+\DeclareOption{doctor}{\@graduatedoctortrue}
+%    \end{macrocode}
+%
+% \paragraph{IvVÌÀs}
+%
+% úÝèÌIvVðÀsµÜ·D
+%    \begin{macrocode}
+\ExecuteOptions{final,twoside,tocchaplong}
+\ProcessOptions
+%    \end{macrocode}
+%
+% \paragraph{eNXÌ±ü}
+%
+% ^¦çê½IvVðÜßÈªçeNXð±üµÜ·D
+%
+%    \begin{macrocode}
+\LoadClass[a4paper,onecolumn,titlepage,11pt
+\ifdraft ,draft\else ,final\fi%
+\ifwinjis ,winjis\else\ifjisfont\else ,mingoth\fi\fi%
+\iftombow ,tombow\else\iftombo ,tombo\else\ifmentuke ,mentuke\fi\fi\fi%
+\if@twoside ,twoside,openright\else ,oneside,openany\fi%
+\ifpapersize ,papersize\fi%
+\if@english ,english\fi%
+]{jsbook}
+%    \end{macrocode}
+%
+% \subsection{\TeX{} Wiki©çîñð¾½LvÈÝè}
+%
+% \subsubsection{g{ÌOÉÊµÔð\¦}
+%
+% \texttt{tombow} IvVðt¯½Æ«¾¯
+% g{ÌOÉÊµÔðÂ¯Ü· ~\cite[10561]{texqa}D
+% ³µ¢y[WðoÍ·éÉÍC½x©RpC·éKvª èÜ·D
+% ½¾µC½x©RpCµÄày[Wð³µ­æ¾Å«È¢±Æà èÜ·D
+% »ÌêÅàÊµÔÍ³µ­Uçêéæ¤Å·D
+%
+%    \begin{macrocode}
+\iftombowdate
+  \newcount\@totalpage
+  \def\@lastoftotalpage{?}
+  \AtEndDocument{\protected@write\@auxout{\let\the\relax}%
+      {\gdef\string\@lastoftotalpage{\the\@totalpage}}}
+  \def\@put@totalpage{\global\advance\@totalpage1
+      \raise4pt\hbox to\z@{\hss
+          \@bannerfont page \the\@totalpage\ of \@lastoftotalpage.\hskip5mm}}
+  \AtBeginDocument{%
+      \let\@@TR\@TR
+      \def\@TR{\@@TR\@put@totalpage}}
+\fi
+%    \end{macrocode}
+%
+% \subsection{y[WCAEg}
+%
+% ÅÊÌÝèðµÜ·D
+%
+%    \begin{macrocode}
+% ¡ûüÌTCYwèðeNX©çÏXµÜ·D
+\setlength{\fullwidth}{\paperwidth}
+\addtolength{\fullwidth}{-36mm}
+\@tempdima=1zw
+\divide\fullwidth\@tempdima \multiply\fullwidth\@tempdima
+\ifdim \fullwidth>42zw
+  \setlength{\fullwidth}{42zw}
+\fi
+\setlength{\textwidth}{\fullwidth}
+%
+\setlength{\oddsidemargin}{\paperwidth}
+\addtolength{\oddsidemargin}{-\textwidth}
+\setlength{\oddsidemargin}{.5\oddsidemargin}
+\iftombow
+  \addtolength{\oddsidemargin}{-1in}
+\else
+  \addtolength{\oddsidemargin}{-1truein}
+\fi
+\setlength{\evensidemargin}{\oddsidemargin}
+% % gbv}[WðÏXµÜ·D
+% \addtolength\topmargin{-\baselineskip}
+% \addtolength\textheight{\baselineskip}
+%    \end{macrocode}
+%
+% \subsection{y[WX^C}
+%
+% |\ps@plainhead| Æ |\ps@headings| ÌX^CðÏXµÜ·D
+%
+% \begin{macro}{\ps@plainhead}
+%
+% |plainhead| X^CÍwb_Ì¬û¤Éy[WÔðoÍµÜ·D
+%
+%    \begin{macrocode}
+\def\ps@plainhead{%
+  \let\@mkboth\@gobbletwo
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \def\@oddhead{\hbox to \fullwidth{\hfil%
+      {\small\textbf{\headfont\thepage}}}\hss}
+  \if@twoside
+    \def\@evenhead{\hss \hbox to \fullwidth{%
+        {\small\textbf{\headfont\thepage}}\hfil}}
+  \else
+    \let\@evenhead\@oddhead
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\ps@headings}
+%
+% |headings| X^CÍwb_Ì¬û¤É©oµÆy[WÔðoÍµÜ·B
+%
+%    \begin{macrocode}
+\def\ps@headings{%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+  \if@twoside
+    \def\@oddhead{\hbox to \fullwidth{\hfil%
+        {\small\headfont\rightmark\qquad\textbf{\thepage}}}\hss}%
+    \def\@evenhead{\hss \hbox to \fullwidth{%
+        {\small\headfont\textbf{\thepage}\qquad\leftmark}\hfil}}%
+  \else
+    \def\@oddhead{\hbox to \fullwidth{\hfil%
+        {\small\headfont\leftmark\qquad\textbf{\thepage}}}\hss}%
+    \let\@evenhead\@oddhead
+  \fi
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{%
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \@chapapp\thechapter\@chappos\hskip1zw
+      \fi
+    \fi
+    ##1}{}}%
+  \def\sectionmark##1{\markright{%
+    \ifnum \c@secnumdepth >\z@ \thesection \hskip1zw\fi
+    ##1}}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{titlepage}
+%
+% ^CgðÆ§Ìy[WÉoÍ·éÌÉgíêÜ·B|oneside| IvVwèÉà
+% |twoside| wèÆ¯¶æ¤Éy[WÔªUçêéæ¤ÉüÏµÜ·D
+%
+%    \begin{macrocode}
+\renewenvironment{titlepage}{%
+  \cleardoublepage
+  \newpage
+  \thispagestyle{empty}%
+  \setcounter{page}\@ne
+}%
+{\newpage} %
+%    \end{macrocode}
+% \end{environment}
+%
+% IvVÅwè³ê½êCóy[WÉy[WÔðo·æ¤ÉµÜ·D
+%
+%    \begin{macrocode}
+\if@emptypagenombre
+  \renewcommand{\cleardoublepage}{%
+     \clearpage%
+     \if@twoside%
+       \ifodd\c@page\iftdir\hbox{}\thispagestyle{plainhead}\newpage%
+                      \if@twocolumn\hbox{}\newpage\fi\fi%
+       \else\ifydir\hbox{}\thispagestyle{plainhead}\newpage%
+                      \if@twocolumn\hbox{}\newpage\fi\fi%
+       \fi\fi}
+\fi
+%    \end{macrocode}
+% \changes{v1.03}{2009/01/14}{Bug fix: the page style of empty pages was inappropriate.}
+%
+% \subsection{¶Ì}[NAbv}
+%
+% \subsubsection{\è}
+%
+% \begin{macro}{\titlewidth}
+% \begin{macro}{\studentid}
+% \begin{macro}{\supervisor}
+% \begin{macro}{\handin}
+% \begin{macro}{\eauthor}
+% \begin{macro}{\keywords}
+%
+% \èÉKvÈîñÌÝèÅ·D\LaTeX {ÌÅè`³êÄ¢éàÌÍ
+% RgAEgµ½`Å¦µÜ·B
+% |\titlewidth| Í^CgðsÌæ¢ÅÜèÈ°½¢Æ«Éwè·éÅ·D
+% wèµÈ¯êÎÅÊ¢ÁÏ¢ÅÜèÈ°Ü·D
+% |\handin| â |\date| ð©È¯êÎ¡úÌútðoÍµÜ·D
+% |\handin| ð³µ­wè·êÎC|\date| Í­Kvª èÜ¹ñ (u¶
+% Ìev[gv(}\ref{fig:¶ÌgÝ}) QÆ)D
+%
+%    \begin{macrocode}
+% \newcommand*{\title}[1]{\gdef\@title{#1}}
+\newcommand*{\titlewidth}[1]{\gdef\title@width{#1}}% #1: ^Cg
+\gdef\title@width{\hsize}
+\newcommand*{\jtitle}[1]{\gdef\@jtitle{#1}}% #1: ^Cg(a¶)
+\newcommand*{\etitle}[1]{\gdef\@etitle{#1}}% #1: ^Cg(p¶)
+\newcommand*{\studentid}[1]{\gdef\@studentid{#1}}% #1: w¶ØÔ
+\newcommand*{\jauthor}[1]{\gdef\@jauthor{#1}}% #1: Ò¼(a¶)
+\newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}% #1: Ò¼(p¶)
+\renewcommand{\and}{\\ &}%
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}% #1: w±³õ¼(a¶)
+%% \newcommand*{\esupervisor}[1]{\gdef\@esupervisor{#1}}% #1: w±³õ¼(p¶)
+%% \newcommand*{\jsupervisortitle}[1]{\gdef\@jsupervisortitle{#1}}% #1: w±³õ¨(a¶)
+%% \newcommand*{\esupervisortitle}[1]{\gdef\@esupervisortitle{#1}}% #1: w±³õ¨(p¶)
+% \newcommand*{\date}[1]{\gdef\@date{#1}}
+% \date{\today}
+\newcommand*{\handin}[2]{\year #1 \month #2}% #1: N, #2: , #3: ú
+\newcommand*{\keywords}[1]{\gdef\@keywords{#1}}% #1: L[[h
+\gdef\@keywordsprefix{\if@english Keywords\else L[[h\fi}
+\if@graduatedoctor
+  \gdef\@jthesisname{m_¶}
+  \gdef\@ethesisname{Doctor Thesis}
+  \gdef\@thesisgrade{Doctor}
+\else
+  \gdef\@jthesisname{Cm_¶}
+  \gdef\@ethesisname{Master's Thesis}
+  \gdef\@thesisgrade{Master}
+\fi
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+%
+% \begin{macro}{\maketitle}
+%
+% \èC\è ðoÍµÜ·B
+% \èÅÍ |\thanks|, |\footnote| ð­§IÉg¦È¢æ¤ÉµÄ èÜ·D
+%
+%    \begin{macrocode}
+\def\@ci@nl(#1,#2){\\[#1truemm minus#2truemm]}
+\renewcommand{\maketitle}{%
+  \global\let\thanks\relax
+  \global\let\@thanks\@empty
+  \@mainmatterfalse
+  \pagenumbering{roman}
+%%  \def\@fp@topskip{\if@english -15ex\else -12ex\fi}
+  \null\vskip -7ex% \@fp@topskip\vfill
+  \vbox to \textheight{
+ \null\vskip 0pt plus 1fil
+  \begin{center}
+    \if@graduatedoctor
+      \PackageWarning{cimt}{Option `doctor' is not officiallly supported.  You may need to modify the class file for appropriate results.}
+    \fi
+    \let\footnote\relax
+    \if@english
+      \headfont\Large
+      Department of Creative Informatics\\
+      Graduate School of Information Science and Technology\\
+      THE UNIVERSITY OF TOKYO\@ci@nl(28,20)
+      \@ethesisname\@ci@nl(10,2)
+      {\LARGE\bf \@etitle\\}
+      {\normalfont \@jtitle\@ci@nl(28,20)}
+      {\LARGE\bf \@eauthor\\}
+      {\normalfont \@jauthor\@ci@nl(28,20)}
+      Supervisor:\quad\@supervisor\@ci@nl(15,8)
+      \edate
+    \else
+      \headfont
+      {\Large åw\\îñHwn¤È n¢îñwêU\\\@jthesisname\@ci@nl(30,20)}
+      {\LARGE \@jtitle\\}
+      {\normalfont\large \@etitle\@ci@nl(30,20)}
+      {\LARGE \@jauthor\\}
+      {\normalfont\large \@eauthor\@ci@nl(30,20)}
+      {\Large w±³õ\quad\@supervisor\@ci@nl(15,10)}
+      {\Large \jdate}
+    \fi
+    \vskip 0pt plus 1fil
+  \end{center}
+  }
+%%  \null\vfill
+  \thispagestyle{empty}
+  \clearpage
+  \setcounter{page}{0}
+  \null\vfill
+  \begin{flushleft}
+%%    Copyright {\copyright} {\number\year},~%
+%%    \ifx\@eauthor\@undefined \@jauthor\else\@eauthor\fi.
+  \end{flushleft}\par
+  \thispagestyle{empty}
+  \setcounter{footnote}{0}%
+  \global\let\maketitle\relax
+  \global\let\subtitle\relax
+  \global\let\title\relax
+  \global\let\supervisor\relax
+  \global\let\eauthor\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{{¶EãtCÓ«Ct^}
+%
+% ZpÌÍÔª éÌªu{¶vC
+% »êÈOªuOtvuãtvÅ·Bt^ÍQl¶£ÈÇæèàãëÉÂ¯é
+% ¬VðÆÁ½Æ«Éàpå¶ÌÍÔªt­æ¤ÉÝèµ¼µÄ èÜ·D
+%
+% \begin{macro}{\frontmatter}
+%
+% y[WÔð[}ÉµCÍÔðt¯È¢æ¤ÉµÜ·B
+%
+%    \begin{macrocode}
+\renewcommand\frontmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \@mainmatterfalse
+  \pagenumbering{roman}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\mainmatter}
+%
+% {¶ÌJnÅ·Dy[WÔðZpÉµCÍÔðt¯éæ¤ÉµÜ·B
+%
+%    \begin{macrocode}
+\renewcommand\mainmatter{%
+  \if@twoside
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \@openrightfalse
+  \@mainmattertrue
+  \pagenumbering{arabic}
+  \if@jabst@put\else
+    \PackageError{cimt}{Japanese abstract is missing}
+  \fi
+  \if@eabst@put\else
+    \PackageError{cimt}{English abstract is missing}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\backmatter}
+%
+% ãtÌJnÅ·DÍÔðt¯È¢æ¤ÉµÜ·By[WÔÌt¯ûÍÏíèÜ¹ñB
+%
+%    \begin{macrocode}
+\renewcommand\backmatter{%
+  \clearpage
+  \@openrightfalse
+  \@mainmatterfalse
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{environment}{jabstract}
+% 
+% a¶TvðLqµÜ·D
+%
+%    \begin{macrocode}
+\newif\if@jabst@put \@jabst@putfalse
+\newenvironment{jabstract}{
+  \if@english
+    \if@eabst@put\else
+      \PackageError{cimt}{English abstract should precede Japanese abstract}
+    \fi
+  \fi
+  \global\@jabst@puttrue
+  \cleardoublepage
+  \begin{center}
+    \Huge\headfont Tv
+  \end{center}
+  \par\bigskip
+}{%
+}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{eabstract}
+% 
+% p¶TvðLqµÜ·D
+%
+%    \begin{macrocode}
+\newif\if@eabst@put \@eabst@putfalse
+\newenvironment{eabstract}{
+  \if@english\else
+    \if@jabst@put\else
+      \PackageError{cimt}{Japanese abstract should precede English abstract}
+    \fi
+  \fi
+  \global\@eabst@puttrue
+  \cleardoublepage
+  \begin{center}%
+    \Huge\headfont Abstract
+  \end{center}
+  \par\bigskip
+}{%
+}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{acknowledements}
+%
+% Ó«Å·D
+%
+%    \begin{macrocode}
+\newenvironment{acknowledgements}{
+  \def\@acktitle{\if@english Acknowledgements\else Ó«\fi}
+    \cleardoublepage
+    \vspace*{50\p@}%
+    {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    {\Huge\headfont \@acktitle}\par\nobreak
+    \vskip 40\p@}%
+}{%
+    \cleardoublepage
+}
+%    \end{macrocode}
+% \end{environment}
+% 
+% \begin{macro}{\appendix}
+%
+% t^ð{¶ÌÅãÉu¢ÄàãtÌãÉu¢ÄàC
+% ÍÔªpå¶Åt­æ¤ÉµÜ·D
+% y[WÔÌt¯ûÍÏíèÜ¹ñD
+%
+%    \begin{macrocode}
+\renewcommand{\appendix}{\par
+  \@mainmattertrue%
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\appendixname}%
+  \gdef\@chappos{}%
+  \gdef\thechapter{\@Alph\c@chapter}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{ÍEß}
+%
+% |tocchaplong|, |tocchapshort| IvVÉA®µÄCÚÅÌÔ\¦ð
+% Ï¦éæ¤ÉµÜ·D
+%
+% \begin{macro}{\@chapter}
+%
+% Í©oµðoÍµÜ·B
+% |secnumdepth| ª0Èã©Â |\@mainmatter| ª^ÌÆ«ÍÔðoÍµÜ·B
+%
+%    \begin{macrocode}
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\thechapter\@chappos}%
+      \if@tocchaplong\addcontentsline{toc}{chapter}%
+        {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
+      \else\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+      \fi%
+    \else\addcontentsline{toc}{chapter}{#1}\fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\p@}}%
+  \addtocontents{lot}{\protect\addvspace{10\p@}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l@chapter}
+%
+% ÍÌÚÅ·B
+%
+%    \begin{macrocode}
+\renewcommand*{\l@chapter}[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \addvspace{1.0em \@plus\p@}
+%   \vskip 1.0em \@plus\p@   % book.clsÅÍªª±¤ÈÁÄ¢é
+    \begingroup
+      \parindent\z@
+%     \rightskip\@pnumwidth
+      \rightskip\@tocrmarg
+      \parfillskip-\rightskip
+      \leavevmode\headfont
+      \if@tocchaplong
+        \@tempdima4.683zw%
+        \setbox\tw@=\hbox{\headfont{}\appendixname{}M\hskip.683zw}%
+        \ifdim \wd\tw@>\@tempdima \@tempdima\wd\tw@\fi
+        \setbox\thr@@=\hbox{\headfont{}\@chapapp{99}\@chappos\hskip.683zw}%
+        \ifdim \wd\thr@@>\@tempdima \@tempdima\wd\thr@@\fi
+        \setlength\@lnumwidth{\@tempdima}%
+      \else
+        \setlength\@lnumwidth{1.5em}%
+      \fi
+      \advance\leftskip\@lnumwidth \hskip-\leftskip
+      #1\nobreak\hfil\nobreak\hbox to\@pnumwidth{\hss#2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l@section}
+%
+% ßÌÚÅ·B
+%
+%    \begin{macrocode}
+\renewcommand*{\l@section}{%
+  \if@tocchaplong%
+    \@tempdima4.683zw%
+    \setbox\tw@=\hbox{\headfont{}\appendixname{}M\hskip.683zw}%
+    \ifdim \wd\tw@>\@tempdima \@tempdima\wd\tw@\fi
+    \setbox\thr@@=\hbox{\headfont{}\@chapapp{99}\@chappos\hskip.683zw}%
+    \ifdim \wd\thr@@>\@tempdima \@tempdima\wd\thr@@\fi
+    \advance\@tempdima-3.683zw%
+    \ifdim \@tempdima<1zw \@tempdima1zw\fi
+    \@tempdimb3.683zw%
+  \else
+    \@tempdima1.5em \@tempdimb2.3em
+  \fi
+  \@dottedtocline{1}{\@tempdima}{\@tempdimb}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Ql¶£Xg}
+%
+% \begin{environment}{thebibliography}
+%
+% Ql¶£XgðoÍµÜ·Bhyperref gpÉAJ[ÌÝèÌdûªÙ©Ì
+% Í§ÄÆµ­Èéæ¤ÉC
+% |\chapter*| ÌAX^XN (Æ |\addtocontentsline| ÌLq) ðæè«Üµ½D
+% |\backmatter| é¾ÆÆàÉp¢Ä­¾³¢D
+%
+%    \begin{macrocode}
+\renewcommand{\bibname}{\if@english References\else Ql¶£\fi}
+\renewenvironment{thebibliography}[1]{%
+  \global\let\presectionname\relax
+  \global\let\postsectionname\relax
+  \chapter{\refname}\@mkboth{\refname}{}%
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+       {\settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth
+        \advance\leftmargin\labelsep
+        \@openbib@code
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty\clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m}
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist}
+%    \end{macrocode}
+% \end{environment}
+%
+% \subsubsection{­\¶£Xg}
+%
+% \begin{environment}{publications}
+\newif\if@pubLongName \@pubLongNamefalse
+\newcommand{\pubUseLongName}{\@pubLongNametrue}
+\newenvironment{publications}{
+  \def\@cname{\if@english\if@pubLongName 
+                  Publications and Research Activities \else Publications \fi
+              \else \if@pubLongName ­\¶£Æ¤® \else ­\¶£ \fi\fi}
+  \chapter{\@cname}
+  \begin{enumerate}
+  \renewcommand{\labelenumi}{(\theenumi)}
+}{%
+  \end{enumerate}
+}
+% \end{environment}
+%
+%
+% \subsubsection{LvV}
+%
+% \begin{macro}{\@makecaption}
+%
+% ¶£~\cite{´} É]¢C{\headfont\small } 1.1.} Ìæ¤È`®ÅLvVðoÍµÜ·D
+% ÅåÅà{¶·æè¶E2zw¸Âà¤Éñ¹C³çÉC
+% ·¢¼O¾Á½Æ«ÉÍxÌºÉ¶ªñè±ÜÈ¢æ¤ÉµÜµ½D
+%
+%    \begin{macrocode}
+\long\def\@makecaption#1#2{{\small%
+  \advance\leftskip2zw
+  \advance\rightskip2zw
+  \@tempdimb\hsize
+  \advance\@tempdimb-4zw
+  \vskip\abovecaptionskip
+  \setbox\tw@=\hbox{\hskip2zw{\headfont#1.}~}%
+  \sbox\@tempboxa{{\headfont#1.}~#2}%
+  \ifdim \wd\@tempboxa >\@tempdimb
+    \list{\headfont#1.}{%
+      \renewcommand{\makelabel}[1]{\hskip2zw##1\hfil}
+      \itemsep    \z@
+      \itemindent \z@
+      \labelsep   \z@
+      \labelwidth \wd\tw@
+      \listparindent\z@
+      \leftmargin \wd\tw@
+      \rightmargin 2zw}\item\relax #2\endlist
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \paragraph{út}
+%
+% p¶útðoÍµÜ·D
+%
+% \begin{macro}{\edate}
+% \begin{macro}{\jdate}
+%    \begin{macrocode}
+\def\edate{%
+  \ifcase\month\or
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December\fi
+% ^^A  \space\number\day,
+  \ \number\year%
+}
+\def\jdate{\number\year N\number\month }
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{y[WÝè}
+%
+% y[WÝèÌú»Å· (|\pagestyle{headings}| ÈOÍsv©àµêÜ¹ñ)B
+%
+%    \begin{macrocode}
+\pagestyle{headings}
+\pagenumbering{arabic}
+\onecolumn
+\raggedbottom
+%    \end{macrocode}
+%
+% \Finale
+%
+\endinput
